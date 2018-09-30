@@ -324,8 +324,8 @@ if(count($errMsg) > 0) { //エラーがある場合
 //トゥートテキスト用意
 $tootText = '';
 //トゥートするテキストとハッシュタグを連結
-if(!empty($content->ht)) {
-    $tootText = _h($tootData->co) . _hashtags(_cm(_h($content->ht)));
+if(!empty($tootData->ht)) {
+    $tootText = _h($tootData->co) . _hashtags(_cm(_h($tootData->ht)));
 }
 else {
     $tootText = _h($tootData->co);

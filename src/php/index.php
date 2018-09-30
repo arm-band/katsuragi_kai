@@ -644,29 +644,35 @@ if(MODE_INSTALLED) {
                     if($result == NULL) {
                         throw new Exception(ERR_MSG70);
                     }
-                } catch (Exception $e) {
-                    echo $e->getMessage(), "\n";
-                }
-                $readMastodon = new SplFileObject(MASTODON_FILE, 'r');
-                //ファイル操作
-                $mastodonData = '';
-                while (!$readMastodon->eof()) {
-                    $line = $readMastodon->fgets();
-                    //コンテンツ
-                    $line = preg_replace('/^const CONTENTS_DATA = \'(.*)\';/', 'const CONTENTS_DATA = \'' . _q($contentJsonStr) . '\';', $line);
-                    $mastodonData .= $line;
-                }
-                //ファイル書き込みMASTODON_FILE
-                try {
-                    $writeMastodon = new SplFileObject(MASTODON_FILE, 'w');
-                    $result = $writeMastodon->fwrite($mastodonData);
-                    if($result == NULL) {
-                        throw new Exception(ERR_MSG70);
+                    if(!TOOT_MODE) {
+                        dashboardFinished(SHOW_MODE['co']); //完了画面表示
+                        exit();
                     }
-                    dashboardFinished(SHOW_MODE['co']); //完了画面表示
-                    exit();
                 } catch (Exception $e) {
                     echo $e->getMessage(), "\n";
+                }
+                if(TOOT_MODE) {
+                    $readMastodon = new SplFileObject(MASTODON_FILE, 'r');
+                    //ファイル操作
+                    $mastodonData = '';
+                    while (!$readMastodon->eof()) {
+                        $line = $readMastodon->fgets();
+                        //コンテンツ
+                        $line = preg_replace('/^const CONTENTS_DATA = \'(.*)\';/', 'const CONTENTS_DATA = \'' . _q($contentJsonStr) . '\';', $line);
+                        $mastodonData .= $line;
+                    }
+                    //ファイル書き込みMASTODON_FILE
+                    try {
+                        $writeMastodon = new SplFileObject(MASTODON_FILE, 'w');
+                        $result = $writeMastodon->fwrite($mastodonData);
+                        if($result == NULL) {
+                            throw new Exception(ERR_MSG70);
+                        }
+                        dashboardFinished(SHOW_MODE['co']); //完了画面表示
+                        exit();
+                    } catch (Exception $e) {
+                        echo $e->getMessage(), "\n";
+                    }
                 }
             }
         }
@@ -760,29 +766,35 @@ if(MODE_INSTALLED) {
                     if($result == NULL) {
                         throw new Exception(ERR_MSG70);
                     }
-                } catch (Exception $e) {
-                    echo $e->getMessage(), "\n";
-                }
-                $readMastodon = new SplFileObject(MASTODON_FILE, 'r');
-                //ファイル操作
-                $MastodonData = '';
-                while (!$readMastodon->eof()) {
-                    $line = $readMastodon->fgets();
-                    //コンテンツ
-                    $line = preg_replace('/^const CONTENTS_DATA = \'(.*)\';/', 'const CONTENTS_DATA = \'' . _q($contentJsonStr) . '\';', $line);
-                    $MastodonData .= $line;
-                }
-                //ファイル書き込み
-                try {
-                    $writeMastodon = new SplFileObject(MASTODON_FILE, 'w');
-                    $result = $writeMastodon->fwrite($MastodonData);
-                    if($result == NULL) {
-                        throw new Exception(ERR_MSG70);
+                    if(!TOOT_MODE) {
+                        dashboardFinished(SHOW_MODE['co']); //完了画面表示
+                        exit();
                     }
-                    dashboardFinished(SHOW_MODE['co']); //完了画面表示
-                    exit();
                 } catch (Exception $e) {
                     echo $e->getMessage(), "\n";
+                }
+                if(TOOT_MODE) {
+                    $readMastodon = new SplFileObject(MASTODON_FILE, 'r');
+                    //ファイル操作
+                    $MastodonData = '';
+                    while (!$readMastodon->eof()) {
+                        $line = $readMastodon->fgets();
+                        //コンテンツ
+                        $line = preg_replace('/^const CONTENTS_DATA = \'(.*)\';/', 'const CONTENTS_DATA = \'' . _q($contentJsonStr) . '\';', $line);
+                        $MastodonData .= $line;
+                    }
+                    //ファイル書き込み
+                    try {
+                        $writeMastodon = new SplFileObject(MASTODON_FILE, 'w');
+                        $result = $writeMastodon->fwrite($MastodonData);
+                        if($result == NULL) {
+                            throw new Exception(ERR_MSG70);
+                        }
+                        dashboardFinished(SHOW_MODE['co']); //完了画面表示
+                        exit();
+                    } catch (Exception $e) {
+                        echo $e->getMessage(), "\n";
+                    }
                 }
             }
         }
