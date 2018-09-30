@@ -1,6 +1,6 @@
 {
   "name": "KATSURAGI_KAI",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "PHPで1ファイルの簡易CMSができないかという試み。",
   "main": "gulpfile.js",
   "scripts": {
