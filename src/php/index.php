@@ -62,7 +62,7 @@ const GLOBAL_APP_AUHTOR_URL = 'https://lab.ewigleere.net'; //著者サイトのU
 const GLOBAL_APP_COPYRIGHT_YEAR = '2018'; //コピーライト表示の年
 const GLOBAL_APP_NAME = 'KATSURAGI KAI'; //アプリ名
 const GLOBAL_APP_URL = 'https://lab.ewigleere.net'; //KATSURAGIのURL
-const GLOBAL_APP_VERSION = '0.2.1'; //KATSURAGIのバージョン
+const GLOBAL_APP_VERSION = '0.2.2'; //KATSURAGIのバージョン
 /* モード設定
 ********************************************* */
 //ログイン

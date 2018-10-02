@@ -150,7 +150,7 @@ class mediaMastodon extends \theCodingCompany\Mastodon {
         }
     }
     //メディア付きトゥートメソッド
-    public function postStatuses($text = "", $mediaId = "", $visibility = "public") {
+    public function postStatuses($text = "", $mediaId = "", $visibility = "unlisted") {
         if(!empty($this->accessToken)) {
             $headers = $this->getHeaders();
             $http = \theCodingCompany\HttpRequest::Instance($this->getApiURL());
