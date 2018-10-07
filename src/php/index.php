@@ -61,8 +61,8 @@ const GLOBAL_APP_AUHTOR = 'アルム＝バンド'; //著者
 const GLOBAL_APP_AUHTOR_URL = 'https://lab.ewigleere.net'; //著者サイトのURL
 const GLOBAL_APP_COPYRIGHT_YEAR = '2018'; //コピーライト表示の年
 const GLOBAL_APP_NAME = 'KATSURAGI KAI'; //アプリ名
-const GLOBAL_APP_URL = 'https://lab.ewigleere.net'; //KATSURAGIのURL
-const GLOBAL_APP_VERSION = '0.2.2'; //KATSURAGIのバージョン
+const GLOBAL_APP_URL = 'https://github.com/arm-band/katsuragi_kai'; //KATSURAGIのURL
+const GLOBAL_APP_VERSION = '0.2.3'; //KATSURAGIのバージョン
 /* モード設定
 ********************************************* */
 //ログイン
@@ -1537,7 +1537,7 @@ if(count($contentsData)) { //コンテンツがある場合
         $postDateTime = dateConvertPost($content->wd, $content->dw, $content->dy, $content->dm, $content->dd, $content->tm);
         $lastActivityDate = dateConvert($content->la);
 ?>
-                    <div class="xol-md-12 col-lg-4">
+                    <div class="xol-md-12 col-lg-4 mb-3">
                         <div class="card">
 <?php
         if(TOOT_MODE && !empty($content->im)) {
@@ -1632,6 +1632,10 @@ if(TOOT_MODE) { //Mastodon連携可能な場合
                 <li class="nav-item"><a href="#" data-target="#dashboardCarousel" data-slide-to="4" class="nav-link"><i class="fab fa-fw fa-mastodon" aria-hidden="true"></i>Mastodon連携</a></li>
 <?php
 }
+$articleCount = 0;
+if(count($contentsData)) {
+    $articleCount = count($contentsData);
+}
 ?>
             </ul>
             <!-- .carousel -->
@@ -1645,6 +1649,7 @@ if(TOOT_MODE) { //Mastodon連携可能な場合
                                 <h2><i class="fas fa-fw fa-file-signature" aria-hidden="true"></i>Contents Manage</h2>
                             </div>
                             <p>コンテンツを管理します。</p>
+                            <p>全: <?=_h($articleCount)?>件</p>
                             <p class="my-3">
                                 <button type="button" class="btn btn-success" data-toggle="modal" data-target="#contentsNew"><i class="fas fa-fw fa-pen-nib" aria-hidden="true"></i>新規作成</button>
                             </p>
